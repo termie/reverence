@@ -17,21 +17,21 @@
 PyMODINIT_FUNC
 init_blue(void)
 {
-	PyObject *m, *marshal;
+  PyObject *m, *marshal;
 
-	m = Py_InitModule("_blue", NULL);
-	if (m == NULL)
-		return;
+  m = Py_InitModule("_blue", NULL);
+  if (m == NULL)
+    return;
 
-	if(!init_dbrow(m))
-		return;
+  if(!init_dbrow(m))
+    return;
 
-	if(!init_virtualfile(m))
-		return;
+  if(!init_virtualfile(m))
+    return;
 
-	marshal = init_marshal();
-	if(marshal)
-		PyModule_AddObject(m, "marshal", marshal);
+  marshal = init_marshal();
+  if(marshal)
+    PyModule_AddObject(m, "marshal", marshal);
 
 }
 

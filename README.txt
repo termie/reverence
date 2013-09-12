@@ -1,5 +1,5 @@
 Reverence - REVERse ENgineered Cache Explorer
-            
+
 Copyright (C)2003-2012 by Jamie "Entity" van den Berge
 All rights reserved.
 
@@ -136,20 +136,20 @@ IndexRowset - these are simple keyed tables:
 
     TABLENAME                    PRIMARY KEY
     ---------------------------  ------------------
-    invcategories                categoryID         
-    invgroups                    groupID            
-    invmetagroups                metaGroupID        
-    invtypes                     typeID             
-    invbptypes                   blueprintTypeID    
-    dgmattribs                   attributeID        
-    dgmeffects                   effectID           
-    evegraphics                  graphicID          
-    eveunits                     unitID             
-    eveowners                    ownerID            
-    evelocations                 locationID         
-    corptickernames              corporationID      
-    allianceshortnames           allianceID         
-    ramaltypes                   assemblyLineTypeID 
+    invcategories                categoryID
+    invgroups                    groupID
+    invmetagroups                metaGroupID
+    invtypes                     typeID
+    invbptypes                   blueprintTypeID
+    dgmattribs                   attributeID
+    dgmeffects                   effectID
+    evegraphics                  graphicID
+    eveunits                     unitID
+    eveowners                    ownerID
+    evelocations                 locationID
+    corptickernames              corporationID
+    allianceshortnames           allianceID
+    ramaltypes                   assemblyLineTypeID
     ramactivities                activityID
     ramcompletedstatuses         completedStatusID
     mapcelestialdescriptions     celestialID
@@ -181,7 +181,7 @@ for the key.
 
   The following tables are in FilterRowset form:
 
-    TABLENAME                    PRIMARY KEY        
+    TABLENAME                    PRIMARY KEY
     ---------------------------  ------------------
     dgmtypeeffects               typeID
     dgmtypeattribs               typeID

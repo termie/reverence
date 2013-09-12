@@ -59,32 +59,32 @@ extern "C" {
 
 
 typedef struct {
-	int cd_size;			// size class
-	int cd_type;			// DBTYPE_* value
-	int cd_offset;			// offset into data blurb
-	int cd_nullbit;			// offset of null bit
-	char *cd_name;			// column name (hard reference to string in columns data)
+  int cd_size;      // size class
+  int cd_type;      // DBTYPE_* value
+  int cd_offset;      // offset into data blurb
+  int cd_nullbit;     // offset of null bit
+  char *cd_name;      // column name (hard reference to string in columns data)
 } ColumnDescriptor;
 
 
 extern PyTypeObject PyDBRowDescriptor_Type;
 
 typedef struct {
-	PyObject_VAR_HEAD
-	PyObject *rd_initarg;				// tuple of columns/types
-	PyObject *rd_header;				// List with header.
+  PyObject_VAR_HEAD
+  PyObject *rd_initarg;       // tuple of columns/types
+  PyObject *rd_header;        // List with header.
 
-	PyObject *rd_properties;			// List with properties or NULL
-	int rd_prop_size;					// number of properties
+  PyObject *rd_properties;      // List with properties or NULL
+  int rd_prop_size;         // number of properties
 
-	// ob_size will be the number of columns (not counting properties)
-	int rd_num_objects;					// number of non-scalar entries
+  // ob_size will be the number of columns (not counting properties)
+  int rd_num_objects;         // number of non-scalar entries
 
-	int rd_unpacked_size;				// length of decoded RLE blurbs
-	int rd_total_size;					// length of decoded RLE blurb PLUS space for objects
+  int rd_unpacked_size;       // length of decoded RLE blurbs
+  int rd_total_size;          // length of decoded RLE blurb PLUS space for objects
 
-	// object gets enough space allocated for rd_num_columns ColumnDescriptors
-	ColumnDescriptor rd_cd[1];
+  // object gets enough space allocated for rd_num_columns ColumnDescriptors
+  ColumnDescriptor rd_cd[1];
 
 } PyDBRowDescriptorObject;
 
@@ -93,10 +93,10 @@ typedef struct {
 
 
 typedef struct {
-	PyObject_VAR_HEAD
-	PyDBRowDescriptorObject *dbrow_header;
-	// after initialization, ob_size will be used as object counter.
-	char dbrow_data[1]; // decoded binary blurb + objects
+  PyObject_VAR_HEAD
+  PyDBRowDescriptorObject *dbrow_header;
+  // after initialization, ob_size will be used as object counter.
+  char dbrow_data[1]; // decoded binary blurb + objects
 } PyDBRowObject;
 
 extern PyTypeObject PyDBRow_Type;
