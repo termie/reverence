@@ -12,14 +12,14 @@ included with the distribution).
 import struct
 
 class FsdUnsignedIntegerKeyMap(dict):
-	def Initialize(self, data):
-		length = struct.unpack_from("<I", data, 0)[0]
-		unpack_from = struct.Struct("<III").unpack_from
-		for offset in xrange(4, 4+length*12, 12):
-			key, off, value = unpack_from(data, offset)
-			self[key] = (off, value)
+  def Initialize(self, data):
+    length = struct.unpack_from("<I", data, 0)[0]
+    unpack_from = struct.Struct("<III").unpack_from
+    for offset in xrange(4, 4+length*12, 12):
+      key, off, value = unpack_from(data, offset)
+      self[key] = (off, value)
 
-	length = dict.__len__
-	Get = dict.get
+  length = dict.__len__
+  Get = dict.get
 
 
