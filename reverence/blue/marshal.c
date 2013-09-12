@@ -17,7 +17,7 @@
 extern unsigned long adler32(unsigned long adler, const char *buf, unsigned int len);
 
 
-#define MARSHAL_DEBUG 0
+#define MARSHAL_DEBUG 1
 
 #define MAX_DEPTH 64  // max object hierarchy depth
 
@@ -220,6 +220,22 @@ find_global(PyObject *pyname)
   }
 
   name = PyString_AS_STRING(pyname);
+
+  // remove the various prefixes that were added in Odyssey 1.1
+  // carbon.common.script.net.
+  if (strlen(name) > 24 && name[24] == '.') {
+    name += 25;
+  }
+
+  // eve.common.script.sys.
+  if (strlen(name) > 22 && name[21] == '.') {
+    name += 22;
+  }
+
+  // carbon.common.lib.
+  if (strlen(name) > 18 && name[17] == '.') {
+    name += 18;
+  }
 
   dot = strchr(name, '.');
   if(dot)
