@@ -17,7 +17,7 @@
 extern unsigned long adler32(unsigned long adler, const char *buf, unsigned int len);
 
 
-#define MARSHAL_DEBUG 1
+#define MARSHAL_DEBUG 0
 
 #define MAX_DEPTH 64  // max object hierarchy depth
 
@@ -252,6 +252,7 @@ find_global(PyObject *pyname)
       sprintf(buffer, "reverence.%s", name);
       m = PyImport_ImportModule(buffer);
     }
+
 
     // otherwise try absolute import
     if(!m)

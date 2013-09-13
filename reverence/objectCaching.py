@@ -9,7 +9,8 @@ Parts of code inspired by or based on EVE Online, with permission from CCP.
 
 import zlib
 
-from . import blue, util
+from . import blue, util, cachedObject
+
 
 class CachedMethodCallResult:
   __guid__ = "objectCaching.CachedMethodCallResult"
@@ -19,10 +20,12 @@ class CachedMethodCallResult:
     self.details, self.result, self.version = state
 
   def GetResult(self):
-    if isinstance(self.result, util.CachedObject):
+    if (isinstance(self.result, CachedObject)
+        or isinstance(self.result, cachedObject.CachedObject)):
       return self.result.GetCachedObject()
     else:
       return blue.marshal.Load(self.result)
+
 
 class CachedObject:
   __guid__ = "objectCaching.CachedObject"

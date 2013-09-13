@@ -30,11 +30,6 @@ DIGIT = "," # thousands separator
 class Object:
   pass
 
-class KeyVal:
-  __guid__ = "util.KeyVal"
-  def __repr__(self):
-    return "Anonymous KeyVal: %s" % self.__dict__
-
 
 def Singleton(dbrow):
   # used as property getter by certain cache objects
